@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import br.com.cod3r.cm.excecao.ExplosaoException;
-
 public class Tabuleiro {
 
 	private int linhas;
@@ -30,7 +28,8 @@ public class Tabuleiro {
 				.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
 				.findFirst()
 				.ifPresent(c -> c.abrir());
-		} catch (ExplosaoException e) {
+		} catch (Exception e) {
+			//FIXME Ajustar a implementação do método abrir
 			campos.forEach(c -> c.setAberto(true));
 			throw e;
 		}
@@ -81,32 +80,5 @@ public class Tabuleiro {
 	public void reiniciar() {
 		campos.stream().forEach(c -> c.reiniciar());
 		sortearMinas();
-	}
-	
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("   ");
-		
-		for (int j = 0; j < colunas; j++) {
-			sb.append(j);
-			sb.append("  ");
-		}
-		
-		sb.append("\n");
-		
-		int x = 0;
-		for (int i = 0; i < linhas; i++) {
-			sb.append(i);
-			sb.append(" ");
-			for (int j = 0; j < colunas; j++) {
-				sb.append(" ");
-				sb.append(campos.get(x));
-				sb.append(" ");
-				x++;
-			}
-			sb.append("\n");
-		}
-		
-		return sb.toString();
-	}
+	}	
 }

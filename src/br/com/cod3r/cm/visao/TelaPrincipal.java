@@ -8,7 +8,7 @@ import br.com.cod3r.cm.modelo.Tabuleiro;
 public class TelaPrincipal extends JFrame{
 
 	public TelaPrincipal() {
-		Tabuleiro tabuleiro = new Tabuleiro(16, 30, 50);
+		Tabuleiro tabuleiro = new Tabuleiro(16, 30, 5);
 		add(new PainelTabuleiro(tabuleiro));
 		
 		setTitle("Campo Minado");

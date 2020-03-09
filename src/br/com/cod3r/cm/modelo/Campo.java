@@ -92,7 +92,7 @@ public class Campo {
 		minado = true;
 	}
 	
-	boolean isMinado() {
+	public boolean isMinado() {
 		return minado;
 	}
 	
